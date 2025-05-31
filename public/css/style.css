@@ -19,7 +19,6 @@ body {
     font-family: 'Lora', serif;
     z-index: 1;
 }
-
 .tab-header h1 {
     position: absolute;
     top: 3vw;
@@ -28,7 +27,6 @@ body {
     color: #fff;
     margin: 0;
 }
-
 .tab-header img {
     width: 15%;
     height: auto;
@@ -38,16 +36,30 @@ body {
     border-radius: 0;
 }
 
+@media (min-width: 768px) {
+    .tab-header {
+        height: 10vw;
+    }
+    .tab-header h1 {
+        font-size: 2vw;
+        left: 10vw;
+    }
+    .tab-header img {
+        width: 6%;
+        top: 0.4vw;
+        left: 4.6vw;
+    }
+}
+
 /* HAMBURGER */
 .hamburger {
     width: 8vw;
-    height: 2vw;
     margin: 0;
     cursor: pointer;
     position: absolute;
     top: 3svw;
     right: 3vw;
-    z-index: 1001;
+    z-index: 5;
 }
 
 /* 3 garis hamburger */
@@ -57,6 +69,12 @@ body {
     margin: 1.5vw 0;
     border-radius: 2px;
     transition: 0.3s;
+}
+
+@media (min-width: 768px) {
+    .hamburger {
+        display: none;
+    }
 }
 
 /* Hidden Menu */
@@ -105,17 +123,25 @@ body {
     text-align: center;
     top: -18vw;
 }
-@media (max-width: 415px) {
-    .hero-section {
-        background-attachment: scroll;
-    }
-}
 .hero-overlay {
     position: absolute;
     top: -18vw; left: 0;
     width: 100%; height: 108vh;
     background: rgba(0,0,0,0.5);
     z-index: 0;
+}
+@media (max-width: 415px) {
+    .hero-section {
+        background-attachment: scroll;
+    }
+}
+@media (min-width: 768px) {
+    .hero-section {
+        top: -10vw; 
+    }
+    .hero-overlay {
+        top: -3.6vw;
+    }
 }
 .hero-content {
     position: relative;
@@ -129,6 +155,24 @@ body {
 }
 .hero-content p {
     font-size: 4vw;
+}
+@media (min-width: 768px) {
+    .hero-section {
+        align-items: normal;
+        justify-content: left;
+        text-align: left;
+    }
+    .hero-content {
+        position: absolute
+    }
+    .hero-content h1 {
+        position: absolute;
+        top: 10vw;
+        font-size: 6vw;
+    }
+    .hero-content p {
+        font-size: 2vw;
+    }
 }
 
 /* SECTION: ABOUT */
