@@ -20,3 +20,13 @@ document.addEventListener('DOMContentLoaded', function () {
     console.log("SCROLLED");
   });
 });
+
+// AUTO BG WHEN SCROLL - ERROR
+document.getElementById('bodyId').onscroll = function () {
+  if (this.scrollTop > 10) {
+    document.getElementById('tab-header').style.backgroundColor = 'red';
+    document.getElementById('tab-header').style.position = 'fixed';
+  } else {
+    document.getElementById('tab-header').style.backgroundColor = 'transparent';
+  }
+};
