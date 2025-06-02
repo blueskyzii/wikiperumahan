@@ -28,42 +28,37 @@ menu.querySelectorAll('a').forEach(link => {
 });
 
 
-// AUTO BG WHEN SCROLL - ERROR
+// AUTO BG WHEN SCROLL
 window.addEventListener('scroll', function () {
     const header = document.getElementById('tab-header');
     const h1 = header.querySelector('h1');
-    const tabLinks = header.querySelectorAll('.tab a span');
+    const tabLinks = header.querySelectorAll('.tab a');
     const hamburgerLines = header.querySelectorAll('.hamburger div');
+    const logoImg = document.getElementById('logo-img');
 
     const scrolled = window.scrollY > 10;
 
+    // Header style
     header.style.backgroundColor = scrolled ? '#fefefe' : 'transparent';
+    header.style.boxShadow = scrolled ? '0 2px 10px rgba(0, 0, 0, 0.1)' : 'none';
+
+    // Judul warna
     h1.style.color = scrolled ? 'black' : '#fefefe';
 
-    tabLinks.forEach(span => {
-        const isActive = span.parentElement.classList.contains('active');
-        if (scrolled) {
-            span.style.color = isActive ? '#ffd700' : 'black';
-        } else {
-            span.style.color = '#fefefe';
-        }
+    // Tab link
+    tabLinks.forEach(link => {
+        link.classList.toggle('scrolled', scrolled);
     });
 
+    // Hamburger garis
     hamburgerLines.forEach(line => {
         line.style.backgroundColor = scrolled ? 'black' : '#fefefe';
     });
 
-    // INVERT COLOR IMG ICON
-    const logoImg = document.getElementById('logo-img');
-
-    if (scrolled) {
-        logoImg.style.filter = 'invert(1)';
-        header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
-    } else {
-        logoImg.style.filter = 'invert(0)';
-        header.style.boxShadow = 'none';
-    }
+    // Logo image
+    logoImg.style.filter = scrolled ? 'invert(1)' : 'invert(0)';
 });
+
 
 
 

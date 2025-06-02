@@ -18,3 +18,7 @@ update 02/06/25 14:25
 - add warna background pada tab mobile & desktop
 - add change font color tab saat scroll mobile & desktop
 - update responsif menu mobile
+
+update 02/06/25 15:35
+- fix tujuan tab "beranda"
+- add ketika pointer/cursor di tab maka akan ada hover only desktop

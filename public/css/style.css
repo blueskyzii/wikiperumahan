@@ -88,18 +88,27 @@ html {
         top: 50%;
         transform: translateY(-50%);
     }
-    .tab a span {
-        font-size: 1.5vw;
-        margin: 0;
-        color: #ffffff;
-        display: inline-block; /* <<< ini penting */
-        white-space: nowrap;   /* biar teksnya nggak pindah baris */
-    }
     .tab a {
         text-decoration: none;
         display: inline-flex;
         align-items: center;
     }
+    .tab a span {
+        font-size: 1.5vw;
+        margin: 0;
+        color: #ffffff;
+        display: inline-block;
+        white-space: nowrap;
+        transition: color 0.3s ease;
+    }
+    .tab a.scrolled span {
+        color: black;
+    }
+
+    .tab a.active.scrolled span {
+        color: #ffd700;
+    }
+
     .tab a span:hover {
         color: rgb(179, 179, 179);
         cursor: pointer;
