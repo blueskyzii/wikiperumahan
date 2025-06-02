@@ -12,16 +12,16 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
-<body>
+<body  id="bodyId">
     <!-- BAGIAN TAB ATAS -->
     <div class="tab-header" id="tab-header">
         <a href="index.html">
             <h1 class="font-judul">WikiPerumahan</h1>
-            <img src="public/img/icon.png" alt="icon">
+            <img id="logo-img" src="public/img/icon.png" alt="icon">
         </a>
 
         <div class="tab">
-            <a href="#tab-header" rel="noopener noreferrer">
+            <a href="#tab-header" class="active" rel="noopener noreferrer">
                 <span>Beranda</span>
             </a>
             <a href="#tentang-kami" rel="noopener noreferrer">
@@ -44,15 +44,23 @@
 
         <!-- Menu -->
         <nav class="menu" id="menu">
-            <a href="#">Home</a>
-            <a href="#">About</a>
-            <a href="#">Services</a>
-            <a href="#">Contact</a>
+            <a href="#tab-header" class="active" rel="noopener noreferrer">
+                <span>Beranda</span>
+            </a>
+            <a href="#tentang-kami" rel="noopener noreferrer">
+                <span>Tentang Kami</span>
+            </a>
+            <a href="developer.html" target="_blank" rel="noopener noreferrer">
+                <span>Developer</span>
+            </a>
+            <a href="properti.html" target="_blank" rel="noopener noreferrer">
+                <span>Properti</span>
+            </a>
         </nav>
     </div>
 
     <!-- HERO SECTION -->
-    <div class="main-content"  id="bodyId">
+    <div class="main-content">
         <section class="hero-section" id="beranda">
             <div class="hero-overlay"></div>
             <div class="hero-content">
@@ -75,5 +83,8 @@
     <footer class="footer">
         <p>&copy; 2025 wikiperumahan.com - All right reserved.</p>
     </footer>
+
+ 
 </body>
+<script src="public/js/main.js"></script>
 </html>

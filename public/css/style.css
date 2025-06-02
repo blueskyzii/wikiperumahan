@@ -6,6 +6,7 @@
 body {
     font-family: 'Cormorant Garamond', serif;
     overflow-x: hidden;
+    background-color: #000000;
 }
 html {
   scroll-behavior: smooth;
@@ -14,10 +15,10 @@ html {
 
 /* TAB PALING ATAS */
 .tab-header {
-    top: 0;
-    position: relative;
+    top: 0vh;
+    position: sticky;
     display: block;
-    height: 18vw;
+    height: 7vh;
     background-color: transparent;
     margin: 0;
     font-family: 'Lora', serif;
@@ -26,37 +27,52 @@ html {
 }
 .tab-header h1 {
     position: absolute;
-    top: 3vw;
+    top: 50%;
+    transform: translateY(-50%);
     left: 14vw;
     font-size: 7vw;
     margin: 0;
     color: #fff;
 }
 .tab-header img {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0vw;
     width: 15%;
     height: auto;
-    position: absolute;
-    left: 0vw;
-    top: -1vw;
-    border-radius: 0;
+}
+#logo-img {
+    transition: filter 0.3s ease-in-out;
 }
 
 @media (min-width: 768px) {
     .tab-header {
-        height: 10vw;
+        height: 5vw;
     }
     .tab-header h1 {
+        top: 50%;
+        transform: translateY(-50%);
         font-size: 2vw;
         left: 11.2vw;
     }
     .tab-header img {
-        width: 6%;
-        top: 0.4vw;
-        left: 5.9vw;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 5%;
+        left: 6.5vw;
     }
 }
 
+.tab-header,
+.tab-header h1,
+.tab a span,
+.hamburger div {
+    transition: all 0.3s ease-in-out;
+}
+
 .tab {
+    font-family: monospace;
     display: none;
 }
 
@@ -69,7 +85,8 @@ html {
         gap: 1vw;
         position: absolute;
         right: 10vw;
-        top: 3vw;
+        top: 50%;
+        transform: translateY(-50%);
     }
     .tab a span {
         font-size: 1.5vw;
@@ -95,9 +112,10 @@ html {
     margin: 0;
     cursor: pointer;
     position: absolute;
-    top: 3svw;
+    top: 50%;
+    transform: translateY(-50%);
     right: 3vw;
-    z-index: 5;
+    z-index: 4;
 }
 
 /* 3 garis hamburger */
@@ -125,7 +143,7 @@ html {
     overflow: hidden;
     max-height: 0;
     transition: max-height 0.4s ease-out;
-    z-index: 4;
+    z-index: 5;
 }
 
 /* Isi menu */
@@ -135,6 +153,7 @@ html {
     color: white;
     text-decoration: none;
     border-bottom: 1px solid #444;
+    height: 5vh;
 }
 .menu a:hover {
     background-color: #444;
@@ -142,32 +161,34 @@ html {
 
 /* Menu terbuka */
 .menu.open {
-    max-height: 18vh;
+    max-height: 20vh;
     transition: max-height 0.4s ease-in;
 }
 
 /* SECTION: HERO */
 .hero-section {
-    background-image: url('../img/background.jpg');
+    background-image: url('../img/bg 2.jpg');
     background-position: center;
     background-attachment: fixed;
-    height: 100vh;
+    height: 105vh;
     position: relative;
     color: white;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    top: -18vw;
+    top: -10vh;
 }
 .hero-overlay {
     position: absolute;
-    top: -17.2vw; left: 0;
-    width: 100%; height: 108vh;
+    top: 0vh;
+    left: 0;
+    width: 100%;
+    height: 120vh;
     background: rgba(0,0,0,0.5);
     z-index: 0;
 }
-@media (max-width: 415px) {
+@media (max-width: 768px) {
     .hero-section {
         background-attachment: scroll;
     }
@@ -177,7 +198,8 @@ html {
         top: -10vw; 
     }
     .hero-overlay {
-        top: -3.3vw;
+        top: 0;
+        height: 120vh;
     }
 }
 .hero-content {
@@ -206,7 +228,7 @@ html {
     }
     .hero-content h1 {
         position: relative;
-        top: 15vw;
+        top: 35vh;
         font-size: 6vw;
         font-weight: 600;
         font-family: Arial, Helvetica, sans-serif;
@@ -214,7 +236,7 @@ html {
     .hero-content p {
         position: relative;
         font-size: 2vw;
-        top: 14vw;
+        top: 35vh;
     }
     .break {
         display: block;
@@ -227,7 +249,7 @@ html {
     position: relative;
     text-align: center;
     background-color: #f5f5f5;
-    top: -18vw;
+    top: -10vh;
 }
 .tentang-kami h2 {
     font-size: 9vw;
@@ -236,21 +258,27 @@ html {
 .tentang-kami p {
     text-align: justify;
     margin: 0 auto;
-    font-size: 1rem;
+    font-size: 4vw;
     line-height: 1.6;
     font-weight: 500;
 }
 .tentang-kami hr {
     position: relative;
-    top: -4vw;
-    background-color: red;
+    top: -2vh;
+    background-color: rgb(0, 0, 0);
     width: 60%;
     margin: 0 auto; /* center horizontal */
 }
 .tentang-kami i {
-    font-size: 8vw;
+    position: absolute;
+    font-size: 6vw;
+    top: 8vw;
+    left: 47vw;
 }
 @media (min-width: 768px) {
+    .tentang-kami {
+        top: -10vw;
+    }
     .tentang-kami h2 {
         font-size: 3vw;
         font-weight: 500;
@@ -259,12 +287,14 @@ html {
         font-weight: 600;
     }
     .tentang-kami i {
-        font-size: 3vw;
+        font-size: 2vw;
+        left: 48.7%;
+        top: 4vh;
     }
     .tentang-kami p {
         text-align: center;
         padding: 1vw 8vw;
-        font-size: 1.5vw;
+        font-size: 1.3vw;
     }
     .tentang-kami hr {
         top: -1vw;
