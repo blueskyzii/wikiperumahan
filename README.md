@@ -10,7 +10,7 @@ update 01/06/25 12:37
 - change isi tentang kami
 - update responsif footer
 
-uddate 02/06/25 14:25
+update 02/06/25 14:25
 - update responsif isi, judul, icon, menu untuk desktop & mobile
 - add warna tab aktif pada desktop
 - add menu garis tiga pojok pada mobile
