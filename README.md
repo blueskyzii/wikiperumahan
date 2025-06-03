@@ -1,3 +1,9 @@
+<!-- update 03/06/25 20:25 -->
+- optimize auto backgorund saat scrolled
+- update responsif tab header
+- add div "Layanan Kami"
+- optimize font responsif
+
 <!-- update 02/06/25 15:35 -->
 - fix tujuan tab "beranda"
 - add ketika pointer/cursor di tab maka akan ada hover only desktop
