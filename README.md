@@ -1,3 +1,7 @@
+update 12/06/25 20:00
+- Full update responsif untuk landing page
+- Add halaman developer-ranking.html untuk main content
+
 update 04/06/25 03:03
 - update responsif (add mobile, tablet, dekstop)
 
