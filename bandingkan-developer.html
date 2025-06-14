@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bandingkan Developer | Wiki Perumahan</title>
+    <link rel="stylesheet" href="public/css/style.css"> <link rel="stylesheet" href="public/css/ranking-dev.css"> <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lora&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+    <div class="tab-header" id="tab-header">
+        <!-- <div class="hr hr-1"></div>
+        <div class="hr hr-2"></div>
+        <div class="hr hr-3"></div> -->
+        <a href="index.html">
+            <h1 class="font-judul">Wiki<span class="wiki"> Perumahan</span></h1>
+            <img id="logo-img" src="public/img/icon.png" alt="icon">
+        </a>
+
+    </div>
+
+    <div class="main-content-developer">
+        <section class="developer-hero-search">
+            <div class="developer-hero-overlay"></div>
+            <div class="developer-hero-content">
+                <h1>Cari & Bandingkan <span class="break-developer"></span>Developer Properti</h1>
+                <p>Temukan developer terpercaya dengan data performa dan ulasan objektif.</p>
+                <div class="search-bar">
+                    <input type="text" placeholder="Cari nama developer, lokasi, atau proyek...">
+                    <button><i class="fas fa-search"></i> Cari</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="developer-content-wrapper">
+            <div class="container">
+                <div class="ad-section">
+                    <h2>Iklan Pilihan</h2>
+                    <div class="ad-banner">
+                        <img src="https://via.placeholder.com/900x150?text=Iklan+Properti+Premium" alt="Iklan Properti">
+                        <p>Dapatkan penawaran terbaik dari developer terkemuka!</p>
+                    </div>
+                </div>
+
+                <div class="news-section">
+                    <h2>Berita & Artikel Properti Terbaru</h2>
+                    <div class="news-grid">
+                        <div class="news-card">
+                            <img src="https://via.placeholder.com/300x200?text=Berita+1" alt="Berita 1">
+                            <h3>Tips Memilih Developer Terpercaya di Tahun 2025</h3>
+                            <p>Pelajari faktor-faktor penting dalam memilih developer agar investasi Anda aman.</p>
+                            <a href="#" class="read-more">Baca Selengkapnya</a>
+                        </div>
+                        <div class="news-card">
+                            <img src="https://via.placeholder.com/300x200?text=Berita+2" alt="Berita 2">
+                            <h3>Tren Properti di Jawa Timur: Peluang dan Tantangan</h3>
+                            <p>Analisis mendalam tentang pasar properti di wilayah Jawa Timur.</p>
+                            <a href="#" class="read-more">Baca Selengkapnya</a>
+                        </div>
+                        <div class="news-card">
+                            <img src="https://via.placeholder.com/300x200?text=Berita+3" alt="Berita 3">
+                            <h3>Legalitas Properti: Hal yang Wajib Anda Ketahui</h3>
+                            <p>Panduan lengkap mengenai aspek legalitas dalam pembelian properti.</p>
+                            <a href="#" class="read-more">Baca Selengkapnya</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ranking-section">
+                    <h2>Ranking Developer Properti Terbaik</h2>
+                    <p class="ranking-desc">Berdasarkan penilaian objektif dari tim ahli dan ulasan pengguna.</p>
+                    
+                    <div class="filter-options">
+                        <label for="sort-by">Urutkan berdasarkan:</label>
+                        <select id="sort-by">
+                            <option value="score">Skor Tertinggi</option>
+                            <option value="reviews">Jumlah Ulasan</option>
+                            <option value="newest">Terbaru Ditambahkan</option>
+                        </select>
+                        <label for="location-filter">Lokasi:</label>
+                        <select id="location-filter">
+                            <option value="all">Semua Lokasi</option>
+                            <option value="jakarta">Jakarta</option>
+                            <option value="surabaya">Surabaya</option>
+                            <option value="bandung">Bandung</option>
+                            <option value="malang">Malang</option>
+                            </select>
+                    </div>
+
+                    <div class="developer-list">
+                        <div class="developer-card">
+                            <div class="developer-info">
+                                <img src="https://via.placeholder.com/80x80?text=Logo+A" alt="Developer A Logo" class="developer-logo">
+                                <div class="developer-details">
+                                    <h3>PT. Maju Properti Sejahtera</h3>
+                                    <p>Lokasi: Jakarta, Surabaya</p>
+                                    <div class="rating">
+                                        <i class="fas fa-star"></i> 4.8 (120 Ulasan)
+                                    </div>
+                                    <span class="status trusted"><i class="fas fa-check-circle"></i> Terpercaya</span>
+                                </div>
+                            </div>
+                            <div class="developer-score">
+                                <span class="score">9.2</span>/10
+                                <a href="#" class="btn btn-detail">Lihat Profil</a>
+                            </div>
+                        </div>
+
+                        <div class="developer-card">
+                            <div class="developer-info">
+                                <img src="https://via.placeholder.com/80x80?text=Logo+B" alt="Developer B Logo" class="developer-logo">
+                                <div class="developer-details">
+                                    <h3>Citra Jaya Developer</h3>
+                                    <p>Lokasi: Bandung, Bekasi</p>
+                                    <div class="rating">
+                                        <i class="fas fa-star"></i> 4.5 (85 Ulasan)
+                                    </div>
+                                    <span class="status trusted"><i class="fas fa-check-circle"></i> Terpercaya</span>
+                                </div>
+                            </div>
+                            <div class="developer-score">
+                                <span class="score">8.9</span>/10
+                                <a href="#" class="btn btn-detail">Lihat Profil</a>
+                            </div>
+                        </div>
+
+                        <div class="developer-card">
+                            <div class="developer-info">
+                                <img src="https://via.placeholder.com/80x80?text=Logo+C" alt="Developer C Logo" class="developer-logo">
+                                <div class="developer-details">
+                                    <h3>Griya Harmoni Group</h3>
+                                    <p>Lokasi: Malang, Sidoarjo</p>
+                                    <div class="rating">
+                                        <i class="fas fa-star"></i> 4.3 (60 Ulasan)
+                                    </div>
+                                    <span class="status warning"><i class="fas fa-exclamation-triangle"></i> Perlu Perhatian</span>
+                                </div>
+                            </div>
+                            <div class="developer-score">
+                                <span class="score">7.5</span>/10
+                                <a href="#" class="btn btn-detail">Lihat Profil</a>
+                            </div>
+                        </div>
+                        
+                        </div>
+                    <button class="btn load-more-btn">Muat Lebih Banyak Developer</button>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2025 wikiperumahan.com - All right reserved.</p>
+    </footer>
+
+    <script src="public/js/ranking-dev.js"></script>
+</body>
+</html>

@@ -21,32 +21,39 @@ html {
 
 /* TAB PALING ATAS */
 .tab-header {
-    top: 0vh;
-    position: sticky;
-    display: block;
+    position: fixed; /* Diubah dari sticky menjadi fixed agar selalu di atas dan tidak memengaruhi aliran dokumen */
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex; /* Menggunakan flexbox untuk penataan elemen di dalam header */
+    align-items: center; /* Pusatkan vertikal */
     height: 70px;
     background-color: transparent;
-    margin: 0;
+    padding: 0 20px; /* Padding responsif */
     font-family: 'Lora', serif;
-    z-index: 5;
+    z-index: 5; /* Pastikan di atas konten lain */
     text-decoration: none;
+    justify-content: space-between; /* Untuk memisahkan logo/judul dan hamburger */
+}
+.tab-header a:first-of-type { /* Link untuk logo dan judul Wiki Perumahan */
+    display: flex; /* Untuk menata icon dan h1 */
+    align-items: center;
+    text-decoration: none;
+    color: #fff; /* Warna default judul */
 }
 .tab-header h1 {
-    position: absolute;
-    top: 32px;
-    transform: translateY(-50%);
-    left: 60px;
+    /* Menghapus properti position absolute */
     font-size: 28px;
     margin: 0;
-    color: #fff;
+    white-space: nowrap;
+    margin-left: 50px; /* Jarak antara icon dan judul */
 }
 .tab-header img {
-    position: relative;
-    top: 34px;
-    transform: translateY(-50%);
-    left: 1px;
-    width: 65px;
-    height: 65px;
+    /* Menghapus properti position relative dan absolute transforms */
+    position: absolute;
+    width: 50px; /* Ukuran icon mobile */
+    height: 50px;
+    object-fit: contain;
 }
 #logo-img {
     transition: filter 0.3s ease-in-out;
@@ -57,47 +64,46 @@ html {
 .hr {
     background-color: #fefefe;
     transition: filter 0.3s ease-in-out;
-}
-.hr-1 {
-    position: absolute;
-    height: 3px;
-    width: 230px;
-    top: 51px;
-    left: 60px;
-    font-size: 20px;
-}
-.hr-2 {
-    position: absolute;
-    height: 3px;
-    width: 40px;
-    top: 12px;
-    left: 253px;
-    font-size: 20px;
-}
-.hr-3 {
-    position: absolute;
-    height: 40px;
-    width: 3px;
-    top: 14px;
-    left: 290px;
-    font-size: 20px;
+    display: none; /* Sembunyikan secara default, ditampilkan di desktop */
 }
 
-@media (min-width: 768px) {
+/* Penyesuaian desktop untuk header */
+@media (min-width: 1024px) {
+    .tab-header {
+        justify-content: flex-start; /* Rata kiri untuk logo/judul */
+        padding: 0 5vw; /* Padding lebih besar untuk desktop */
+    }
     .tab-header h1 {
-        left: 150px;
+        font-size: 32px; /* Ukuran font lebih besar */
+        margin-left: 60px;
     }
     .tab-header img {
-        left: 90px;
+        width: 65px; /* Ukuran icon lebih besar */
+        height: 65px;
+    }
+    /* Posisi elemen hr disesuaikan dengan layout flexbox baru */
+    .hr {
+        display: block; /* Tampilkan garis di desktop */
+        position: absolute; /* Tetap absolute untuk posisi spesifik */
+        background-color: #fefefe;
     }
     .hr-1 {
-        left: 150px;
+        height: 3px;
+        width: 230px;
+        top: 55px;
+        left: 13.1vw;
     }
     .hr-2 {
-        left: 343px; /* 150 + jarak dari hr-1 ke hr-2 (sekitar 93px) */
+        height: 3px;
+        width: 40px;
+        top: 16px;
+        left: 31.7vw;
     }
     .hr-3 {
-        left: 380px; /* 343 + jarak ke kanan (sekitar 37px) */
+        height: 40px;
+        width: 3px;
+        top: 18px;
+        left: 35.4vw;
     }
 }
 
@@ -108,22 +114,24 @@ html {
     transition: all 0.3s ease-in-out;
 }
 
+/* Navigasi Desktop */
 .tab {
     font-family: monospace;
-    display: none;
+    display: none; /* Sembunyikan di mobile */
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
     .tab {
-        display: flex;
+        display: flex; /* Tampilkan flex di desktop */
         flex-direction: row;
         justify-content: flex-start;
         align-items: center;
-        gap: 10px;
-        position: absolute;
-        right: 100px;
-        top: 34px;
-        transform: translateY(-50%);
+        gap: 20px;
+        margin-left: auto; /* Dorong menu ke kanan */
+        margin-right: 5vw; /* Jarak dari tepi kanan */
+        position: static; /* Menghapus position absolute */
+        top: auto;
+        transform: none;
     }
     .tab a {
         text-decoration: none;
@@ -131,10 +139,9 @@ html {
         align-items: center;
     }
     .tab a span {
-        font-size: 20px;
+        font-size: 1.5em;
         margin: 0;
         color: #ffffff;
-        display: inline-block;
         white-space: nowrap;
         transition: color 0.3s ease;
     }
@@ -155,34 +162,34 @@ html {
 /* HAMBURGER */
 .hamburger {
     width: 30px;
-    margin: 0;
     cursor: pointer;
-    position: absolute;
-    top: 34px;
-    transform: translateY(-50%);
-    right: 3vw;
+    position: relative; /* Tetap relative untuk mobile positioning dalam flex container */
     z-index: 4;
+    margin-left: auto; /* Dorong hamburger ke kanan saat tidak ada nav desktop */
+    right: auto; /* Menghapus position absolute */
+    top: auto; /* Menghapus position absolute */
+    transform: none; /* Menghapus transform */
 }
 
 /* 3 garis hamburger */
 .hamburger div {
     background-color: #fff;
-    height: 5px;
-    margin: 1.5vw 0;
+    height: 4px;
+    margin: 6px 0;
     border-radius: 2px;
     transition: 0.3s;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
     .hamburger {
-        display: none;
+        display: none; /* Sembunyikan hamburger di desktop */
     }
 }
 
-/* Hidden Menu */
+/* Hidden Menu (Mobile) */
 .menu {
-    position: fixed;
-    top: 0;
+    position: fixed; /* Tetap fixed */
+    top: 70px; /* Mulai di bawah header fixed */
     left: 0;
     right: 0;
     background-color: #222;
@@ -199,7 +206,7 @@ html {
     color: white;
     text-decoration: none;
     border-bottom: 1px solid #444;
-    height: 5vh;
+    height: auto;
 }
 .menu a:hover {
     background-color: #444;
@@ -207,68 +214,77 @@ html {
 
 /* Menu terbuka */
 .menu.open {
-    max-height: 20vh;
+    max-height: 250px;
     transition: max-height 0.4s ease-in;
 }
 
 /* SECTION: HERO */
 .hero-section {
     background-image: url('../img/bg 2.jpg');
+    background-size: cover; /* Pastikan gambar menutupi seluruh area */
     background-position: center;
-    background-attachment: fixed;
-    height: 105vh;
-    position: relative;
+    background-attachment: scroll; /* Scroll default untuk mobile */
+    height: 100vh; /* Mengisi seluruh viewport height */
+    position: relative; /* Tetap relative untuk posisi overlay */
     color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    top: -10vh;
+    display: flex; /* Menggunakan flexbox untuk penataan konten */
+    flex-direction: column; /* Susun konten secara vertikal */
+    align-items: center; /* Pusatkan horizontal untuk mobile */
+    justify-content: center; /* Pusatkan vertikal untuk mobile */
+    text-align: center; /* Pusatkan teks untuk mobile */
+    top: 0; /* Pastikan dimulai dari paling atas */
 }
 .hero-overlay {
     position: absolute;
-    top: 0vh;
+    top: 0;
     left: 0;
     width: 100%;
-    height: 120vh;
+    height: 100%; /* Overlay menutupi 100% dari hero-section */
     background: rgba(0,0,0,0.5);
     z-index: 0;
 }
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
     .hero-section {
         background-attachment: scroll;
     }
 }
-@media (min-width: 768px) {
-    .hero-section {
-        top: -10vw; 
-    }
-    .hero-overlay {
-        top: 0;
-        height: 120vh;
-    }
-}
-.hero-content {
+
+/* Container main-content */
+/* Tidak perlu padding-top pada main-content, karena hero-section sudah menangani tinggi penuh */
+.main-content {
     position: relative;
     z-index: 1;
-    margin: 20px;
+}
+
+.hero-content {
+    position: relative; /* Tetap relative untuk z-index anaknya */
+    z-index: 1;
+    margin: 20px; /* Margin untuk padding konten di mobile */
+    max-width: 90%; /* Batasi lebar di mobile */
 }
 .hero-content h1 {
     font-weight: 900;
-    font-size: 11vw;
-    margin-bottom: 20px;
+    font-size: 2.5em; /* Ukuran font responsif */
+    margin-bottom: 15px;
+    line-height: 1.2;
+    position: static; /* Menghapus position absolute */
+    top: auto;
 }
 .hero-content p {
-    font-size: 4vw;
+    font-size: 1.1em; /* Ukuran font responsif */
+    margin-bottom: 20px;
+    position: static; /* Menghapus position absolute */
+    top: auto;
 }
 .cta-buttons {
     margin-top: 30px;
     display: flex;
-    flex-direction: column;
+    flex-direction: column; /* Tombol bertumpuk vertikal di mobile */
     gap: 15px;
-    align-items: center;
-    position: relative;
-    top: 20px;
+    align-items: center; /* Pusatkan tombol horizontal di mobile */
+    position: static; /* Menghapus position absolute */
+    top: auto;
+    left: auto;
 }
 
 .btn {
@@ -282,20 +298,18 @@ html {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 80%;
-    backdrop-filter: blur(10px); /* Blur default, override per tombol */
+    width: 80%; /* Lebar relatif terhadap parent di mobile */
+    max-width: 300px; /* Lebar maksimum tombol */
+    backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     box-sizing: border-box;
 }
 
-/* Tombol kiri: blur & transparan */
 .btn-outline {
     background-color: rgba(255, 255, 255, 0.15);
     color: white;
     border: 1px solid rgba(255, 255, 255, 0.4);
 }
-
-/* Tombol kanan: solid */
 .btn-solid {
     background-color: red;
     color: white;
@@ -311,112 +325,150 @@ html {
     border-color: darkred;
 }
 
-/* Tablet/Desktop: horizontal layout */
+/* Tablet Layout */
 @media (min-width: 768px) {
-    .cta-buttons {
-        flex-direction: row;
-        justify-content: flex-start;
-        align-items: center;
-        gap: 20px;
-        margin-top: 40px;
-        top: 70vh;
-        left: 5vw;
-        position: absolute;
-    }
-
-    .btn {
-        width: auto;
-        min-width: 160px;
-    }
-}
-
-@media (min-width: 768px) {
-    .hero-section {
-        align-items: normal;
-        justify-content: left;
-        text-align: left;
-        height: 118vh;
-    }
-    .hero-content {
-        position: absolute;
-        padding: 0 5vw 0 5vw;
-    }
     .hero-content h1 {
-        position: relative;
-        top: 35vh;
-        font-size: 6vw;
-        font-weight: 600;
-        font-family: Arial, Helvetica, sans-serif;
+        font-size: 4em;
     }
     .hero-content p {
-        position: relative;
-        font-size: 2vw;
-        top: 35vh;
+        font-size: 1.5em;
     }
-    .break {
-        display: block;
+    .cta-buttons {
+        flex-direction: row; /* Tombol berdampingan */
+        justify-content: center; /* Pusatkan tombol di tablet */
+        gap: 20px;
+        margin-top: 40px;
+    }
+    .btn {
+        width: auto;
+        min-width: 180px;
+    }
+    .hero-section { /* Penyesuaian khusus tablet untuk hero content */
+        align-items: center; /* Pusatkan horizontal dalam flex column */
+        justify-content: center; /* Pusatkan vertikal */
+        text-align: center;
+    }
+    .hero-content {
+        padding: 0; /* Hapus padding spesifik untuk tablet agar lebih terpusat */
     }
 }
+
+.break {
+    display: none;
+}
+
+/* Desktop Layout (min-width: 1024px) */
+@media (min-width: 1024px) {
+    .hero-section {
+        background-attachment: fixed; /* Efek parallax */
+        height: 100vh; /* Tinggi penuh viewport */
+        align-items: flex-start; /* Rata kiri konten */
+        justify-content: center; /* Pusatkan konten secara vertikal */
+        text-align: left; /* Rata kiri teks */
+    }
+    .hero-content {
+        max-width: 100vw; /* Batasi lebar maksimum konten */
+        padding-left: 5vw; /* Padding dari tepi kiri */
+        margin: 0; /* Reset margin */
+        position: static; /* Pastikan posisi statis */
+    }
+    .hero-content h1 {
+        font-size: 4em; /* Ukuran font optimal untuk desktop */
+        font-weight: 600;
+        font-family: Arial, Helvetica, sans-serif;
+        margin-bottom: 20px;
+    }
+    .hero-content p {
+        font-size: 1.8em; /* Ukuran font optimal untuk desktop */
+        margin-bottom: 30px;
+    }
+    .cta-buttons {
+        flex-direction: row;
+        justify-content: flex-start; /* Tombol rata kiri */
+        gap: 20px;
+        margin-top: 40px;
+    }
+    .btn {
+        width: auto;
+        min-width: 180px;
+    }
+    .break {
+        display: block; /* Tetap pada baris yang sama seperti di gambar */
+    }
+}
+
 
 /* SECTION: ABOUT */
 .tentang-kami {
-    padding: 80px 20px;
+    padding: 60px 20px;
     position: relative;
     text-align: center;
     background-color: #f5f5f5;
-    top: -10vh;
+    top: 0; /* Menghapus top negatif */
 }
 .tentang-kami h3 {
-    font-size: 20px;
+    font-size: 1.2em;
     margin: 0;
 }
 .tentang-kami h2 {
-    font-size: 34px;
+    font-size: 2em;
     margin-bottom: 20px;
 }
 .tentang-kami hr {
     position: relative;
-    top: -20px;
+    top: -10px;
     background-color: rgb(0, 0, 0);
-    width: 60%;
-    margin: 0 auto;
+    width: 50%;
+    max-width: 40vw;
+    margin: 0 auto 20px;
+    height: 2px;
+    border: none;
 }
 .tentang-kami p {
     margin: 0 auto;
-    font-size: 4vw;
+    font-size: 1em;
     line-height: 1.6;
     font-weight: 500;
+    max-width: 90vw;
 }
 .tentang-kami i {
-    position: absolute;
-    font-size: 26px;
-    top: 30px;
-    left: 46.5vw;
+    position: relative;
+    font-size: 2em;
+    display: block;
+    margin: 0 auto 10px;
+    color: #e53935;
 }
 @media (min-width: 768px) {
     .tentang-kami {
-        top: -10vw;
+        top: 0;
+        padding: 80px 50px;
     }
     .tentang-kami h2 {
-        font-size: 36px;
-        font-weight: 500;
+        font-size: 2.5em;
     }
     .tentang-kami h3 {
-        font-weight: 600;
+        font-size: 1.5em;
     }
     .tentang-kami i {
-        font-size: 2vw;
-        left: 48.9%;
-        top: 20px;
+        font-size: 3em;
+        margin-bottom: 15px;
+        left: auto;
+        top: auto;
     }
     .tentang-kami p {
-        text-align: center;
-        padding: 1vw 8vw;
-        font-size: 18px;
+        font-size: 1.4em;
+        padding: 0 5vw;
     }
-    .tentang-kami hr {
-        top: -15px;
-        width: 20%;
+}
+@media (min-width: 1024px) {
+    .tentang-kami h2 {
+        font-size: 3em;
+    }
+    .tentang-kami h3 {
+        font-size: 1.8em;
+    }
+    .tentang-kami p {
+        font-size: 1.4em;
     }
 }
 
@@ -427,32 +479,44 @@ html {
     flex-wrap: wrap;
     justify-content: center;
     gap: 20px;
-    padding: 20px;
+    padding: 80px 20px 40px;
+    margin-top: 20px;
 }
 .sub-judul {
     position: absolute;
     z-index: 5;
-    top: -10px;
+    top: 0;
     text-align: center;
+    width: 100%;
 }
 .sub-judul h2 {
-    font-size: 34px;
-    margin-bottom: 20px;
+    font-size: 2em;
+    margin-bottom: 15px;
 }
 .sub-judul hr {
     position: relative;
-    top: -20px;
+    top: -10px;
     background-color: rgb(0, 0, 0);
-    width: 90%;
+    width: 50%;
+    max-width: 150px;
     margin: 0 auto;
+    height: 2px;
+    border: none;
 }
 @media (min-width: 768px) {
-    .sub-judul {
-        top: -50px;
-    }
     .sub-judul h2 {
-        font-size: 36px;
-        font-weight: 500;
+        font-size: 2.5em;
+    }
+    .sub-judul hr {
+        width: 150px;
+    }
+}
+@media (min-width: 1024px) {
+    .sub-judul h2 {
+        font-size: 3em;
+    }
+    .sub-judul hr {
+        width: 180px;
     }
 }
 .card {
@@ -460,12 +524,20 @@ html {
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   padding: 25px;
-  flex: 1 1 100%; /* 1 kolom default (mobile) */
-  max-width: 100%;
+  flex: 1 1 90%;
+  max-width: 400px;
   text-align: center;
 }
+.card h3 {
+    margin-top: 10px;
+    font-size: 1.4em;
+}
+.card p {
+    font-size: 1em;
+    margin-top: 10px;
+}
 .card .icon {
-  font-size: 32px;
+  font-size: 2.5em;
   margin-bottom: 12px;
   color: #e53935;
 }
@@ -473,8 +545,14 @@ html {
 /* Tablet: 2 cards per row */
 @media (min-width: 600px) {
   .card {
-    flex: 1 1 47%;
-    max-width: 47%;
+    flex: 1 1 45%;
+    max-width: 48%;
+  }
+  .card .icon {
+    font-size: 3em;
+  }
+  .card p {
+    font-size: 1.2em;
   }
 }
 
@@ -482,27 +560,30 @@ html {
 @media (min-width: 992px) {
   .card {
     flex: 1 1 30%;
-    max-width: 30%;
+    max-width: 31%;
+  }
+  .card .icon {
+    font-size: 3.5em;
   }
 }
 
 /* SECTION: FOOTER */
 .footer {
-    font-size: 4vw;
     background-color: #222;
     color: #ccc;
     text-align: center;
-    padding: 2vw;
+    padding: 20px;
+    margin-top: 40px;
     z-index: 1;
 }
 .footer p {
-    padding: 1vw;
+    font-size: 1em;
 }
 @media (min-width: 768px) {
     .footer {
-        padding: 0vw;
+        padding: 25px;
     }
     .footer p {
-        font-size: 1.5vw;
+        font-size: 1.4em;
     }
 }
